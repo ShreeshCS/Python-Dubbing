@@ -1,5 +1,3 @@
-from contextlib import suppress
-from warnings import WarningMessage
 from flask import Flask, redirect, request, render_template, url_for
 from datetime import datetime
 from youtube_transcript_api import YouTubeTranscriptApi as ytapi
