@@ -1,0 +1,38 @@
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.welcome_header {
+    background-color: rgba(0, 0, 0, 0.291);
+    border-radius: 10px;
+    align-self: center;
+}
+h1 {
+    color: rgb(213, 30, 30);
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    background-image: url('https://images.pexels.com/photos/4367584/pexels-photo-4367584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+}
+.player_box {
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(10, 18, 105, 0.434);
+    padding: 20px;
+    border-radius: 10px;
+    justify-content: center;
+    margin-top: 100px;
+}
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+#player_image {
+    align-self: center;
+    margin: 10px;
+    
+}
