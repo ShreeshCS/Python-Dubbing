@@ -3,10 +3,13 @@ from flask import *
 from youtube_transcript_api import YouTubeTranscriptApi as ytapi
 import getTranscript
 from gtts import gTTS
-import urllib.request
-import json
-import urllib
-import pprint
+# import urllib.request
+# import json
+# import urllib
+# import pprint
+from urlparse3 import urlparse3, parse_url
+# import calendar
+# import time
 
 # pip install googletrans==3.1.0a0
 
@@ -21,6 +24,7 @@ def index():
 
 @app.route('/convert', methods = ['GET', 'POST'])
 def get_url():
+
     # Get the full valid URL
     link = (request.form.get('link'))
     
@@ -38,11 +42,18 @@ def get_url():
         if link[i] == 'v':
             videoId = link[i+2::]
             break
+    # parsed = urlparse3(link)
+    # videoId = parse_url(parsed.query)['v'][0]
+
+
     lang = request.form.get('language')
 
     translator = Translator()
     
-    json_trans = ytapi.get_transcript(videoId , languages=['en'])
+    # json_trans = ytapi.get_transcript(videoId , languages=['en'])
+    json_trans = ytapi.get_transcript(videoId)
+
+
     trans = getTranscript.getTrans(json_trans)
     if(lang == 'hindi'):
         language = 'hi'
@@ -50,19 +61,25 @@ def get_url():
     else:
         language = 'en'
         translated_transcript = translator.translate(text=trans , dest='en' , src="auto")
+
+
     # print(translated_transcript)
     tts = gTTS(text=translated_transcript.text , lang=language)
     print(lang)
     print(translated_transcript.text)
+
+
     # save the audio in audio folder
     tts.save('audio/transcript.mp3')
+    
     return redirect(url_for("audio_render"))
 
 
 
 @app.route('/convert/player', methods=['GET', 'POST'])
 def audio_render():
-    return render_template('index.html')
+    return render_template('player.html')
+
 
 # FUNCTION THAT LETS YOU MAKE A DIRECTORY ACCESSIBLE TO THE PUBLIC
 @app.route("/audio/<path:filename>")

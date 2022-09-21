@@ -1,0 +1,24 @@
+subtitles = [
+    {
+        "text" : "First line."
+        "start" : 0.00 //in sec
+        // "duration" : 1 //in sec
+    }
+    {
+        "text" : "second line. this is my new day at work."
+        "start" : 1.00 //in sec
+        // "duration" : 4 //in sec
+    }
+    {
+        "text" : "third line."
+        "start" : 2.00 //in sec
+        // "duration" : 1.5 //in sec
+    }
+    {
+        "text" : "fourth line."
+        "start" : 3.50 //in sec
+        // "duration" : 1 //in sec
+    }
+    
+]
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="player_page_styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player | Python Dubbing</title>
+</head>
+<body class="flex-vertical">
+    <header class="welcome_header flex">
+        <h1>
+            Your audiofile is ready to play!
+        </h1>
+    </header>
+    <div class="flex-vertical player_box">
+        <div id="player_image" style="opacity: 80%;">
+            <img src="assets/images/player_back_resized.jpg"/>
+        </div>
+        {%block%}
+        <audio controls="true" preload="auto">
+            <source src="../audio/" type="audio/mpeg">
+        </audio>
+        {%end block%}
+    </div>
+</body>
+</html>
